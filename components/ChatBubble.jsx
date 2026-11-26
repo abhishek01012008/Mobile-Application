@@ -1,16 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import VoiceMessagePlayer from './VoiceMessagePlayer';
 
 // Reusable ChatBubble component
-// Displays text and images with simple conditional styling
+// Displays text, images, and voice audio messages with simple conditional styling
 export default function ChatBubble({ message }) {
   // Check if message was sent by current user
   const isMe = message.sender === 'me';
   const hasImage = Boolean(message.image);
+  const hasAudio = Boolean(message.audio);
 
   return (
     <View style={[styles.bubbleContainer, isMe ? styles.myContainer : styles.otherContainer]}>
       <View style={[styles.bubble, isMe ? styles.myBubble : styles.otherBubble]}>
+        {/* Voice Audio Message */}
+        {hasAudio && (
+          <VoiceMessagePlayer
+            uri={message.audio}
+            duration={message.duration || 0}
+            isMe={isMe}
+          />
+        )}
+
         {/* If message has an image, display it */}
         {hasImage && (
           <Image

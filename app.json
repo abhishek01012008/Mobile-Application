@@ -11,6 +11,7 @@
       "bundleIdentifier": "com.anonymous.chat-app"
     },
     "android": {
+      "package": "com.anonymous.chatapp",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -39,7 +40,19 @@
           }
         }
       ],
-      "expo-status-bar"
-    ]
+      "expo-status-bar",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone for voice messages."
+        }
+      ],
+      "expo-asset"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "419eedfa-fae7-499c-9594-d4770de317f3"
+      }
+    }
   }
 }

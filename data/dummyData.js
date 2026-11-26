@@ -132,8 +132,9 @@ export const users = [
 export const initialMessages = [
   {
     id: '1',
-    text: 'Hey! Send me a text message or photo 📸',
+    text: 'Hey! Send me a text message, photo 📸 or voice note 🎙️',
     image: null,
+    audio: null,
     sender: 'other',
   },
 ];
